@@ -149,7 +149,7 @@ int stm32_sdio_initialize(void)
 
 	finfo("Bind SDIO to the MMC/SD driver, minor=%d\n", SDIO_MINOR);
 
-	ret = mmcsd_slotinitialize(SDIO_MINOR, sdio_dev);
+	ret = -1;//mmcsd_slotinitialize(SDIO_MINOR, sdio_dev);
 
 	if (ret != OK) {
 		syslog(LOG_ERR, "[boot] Failed to bind SDIO to the MMC/SD driver: %d\n", ret);

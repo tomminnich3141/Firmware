@@ -101,7 +101,8 @@ SPI::init()
 			goto out;
 		}
 
-		_dev = px4_spibus_initialize(bus);
+		_dev = nullptr;//px4_spibus_initialize(bus);
+		(void)bus;
 	}
 
 	if (_dev == nullptr) {

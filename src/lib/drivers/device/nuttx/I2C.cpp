@@ -214,7 +214,7 @@ I2C::transfer(const uint8_t *send, unsigned send_len, uint8_t *recv, unsigned re
 
 		/* if we have already retried once, or we are going to give up, then reset the bus */
 		if ((retry_count >= 1) || (retry_count >= _retries)) {
-			I2C_RESET(_dev);
+			//I2C_RESET(_dev);
 		}
 
 	} while (retry_count++ < _retries);

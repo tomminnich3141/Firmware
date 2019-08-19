@@ -41,6 +41,8 @@
 #include <stdio.h>
 #include "board_config.h"
 
+#include <hardware/stm32_adc.h>
+
 #include "../board_internal_common.h"
 
 #include <systemlib/px4_macros.h>
@@ -234,11 +236,12 @@ static int read_id_dn(int *id, uint32_t gpio_drive, uint32_t gpio_sense, int adc
 static int determine_hw_info(int *revision, int *version)
 {
 	int dn;
-	int rv = read_id_dn(&dn, GPIO_HW_REV_DRIVE, GPIO_HW_REV_SENSE, ADC_HW_REV_SENSE_CHANNEL);
+	int rv = -1;//read_id_dn(&dn, GPIO_HW_REV_DRIVE, GPIO_HW_REV_SENSE, ADC_HW_REV_SENSE_CHANNEL);
 
 	if (rv == OK) {
 		*revision =  dn_to_ordinal(dn);
-		rv = read_id_dn(&dn, GPIO_HW_VER_DRIVE, GPIO_HW_VER_SENSE, ADC_HW_VER_SENSE_CHANNEL);
+		rv = -1;//read_id_dn(&dn, GPIO_HW_VER_DRIVE, GPIO_HW_VER_SENSE, ADC_HW_VER_SENSE_CHANNEL);
+		(void)read_id_dn;
 
 		if (rv == OK) {
 			*version =  dn_to_ordinal(dn);

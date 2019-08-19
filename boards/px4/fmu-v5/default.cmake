@@ -7,9 +7,9 @@ px4_add_board(
 	TOOLCHAIN arm-none-eabi
 	ARCHITECTURE cortex-m7
 	ROMFSROOT px4fmu_common
-	IO px4_io-v2_default
+	#IO px4_io-v2_default
 	TESTING
-	UAVCAN_INTERFACES 2
+	#UAVCAN_INTERFACES 2
 
 	SERIAL_PORTS
 		GPS1:/dev/ttyS0
@@ -46,20 +46,20 @@ px4_add_board(
 		pca9685
 		power_monitor/ina226
 		#protocol_splitter
-		pwm_input
+		#pwm_input
 		pwm_out_sim
 		px4fmu
-		px4io
-		rc_input
+		#px4io
+		#rc_input
 		roboclaw
 		stm32
-		stm32/adc
-		stm32/tone_alarm
+		#stm32/adc
+		#stm32/tone_alarm
 		tap_esc
 		telemetry # all available telemetry drivers
 		test_ppm
-		tone_alarm
-		uavcan
+		#tone_alarm
+		#uavcan
 
 	MODULES
 		attitude_estimator_q
@@ -93,12 +93,12 @@ px4_add_board(
 		dumpfile
 		esc_calib
 		hardfault_log
-		i2cdetect
+		#i2cdetect
 		led_control
 		mixer
 		motor_ramp
 		motor_test
-		mtd
+		#mtd
 		nshterm
 		param
 		perf
