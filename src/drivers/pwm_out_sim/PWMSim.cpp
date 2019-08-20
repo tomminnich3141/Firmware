@@ -177,18 +177,6 @@ PWMSim::run()
 
 		/* handle update rate changes */
 		if (_current_update_rate != _update_rate) {
-			int update_rate_in_ms = int(1000 / _update_rate);
-
-			if (update_rate_in_ms < 2) {
-				update_rate_in_ms = 2;
-			}
-
-			for (unsigned i = 0; i < actuator_controls_s::NUM_ACTUATOR_CONTROL_GROUPS; i++) {
-				if (_control_subs[i] >= 0) {
-					orb_set_interval(_control_subs[i], update_rate_in_ms);
-				}
-			}
-
 			// up_pwm_servo_set_rate(_update_rate);
 			_current_update_rate = _update_rate;
 		}
